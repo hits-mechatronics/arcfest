@@ -1,0 +1,12 @@
+---
+import CountDown from "../../components/CountDown";
+import HeroCard from "../../components/HeroCard.astro";
+import Nav from "../../components/Nav";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="ArcFest'23 | Home">
+  <CountDown eventOn="03/30/2023" client:load />
+  <HeroCard />
+  <Nav currentRoute="/2023" client:load />
+</Layout>

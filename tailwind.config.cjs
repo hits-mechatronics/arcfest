@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        titanOne: ["Titan One", "cursive"],
+        comfy: ["Comfortaa", "cursive"],
+        crazy: ["Permanent Marker", "cursive"],
       },
     },
   },

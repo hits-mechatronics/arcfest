@@ -1,0 +1,10 @@
+---
+import CountDown from "../components/CountDown";
+import RegisterInterest from "../components/RegisterInterest";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="ArcFest'23 | Home">
+  <CountDown eventOn="03/30/2023" client:load />
+  <RegisterInterest client:load />
+</Layout>

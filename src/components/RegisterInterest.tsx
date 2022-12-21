@@ -17,7 +17,7 @@ const RegisterInterest: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center shadow-md p-4">
+    <div className="flex flex-col justify-center items-center absolute bottom-6 shadow-md">
       register your interest
       <form
         className="min-w-[300px] w-[50vw] flex"

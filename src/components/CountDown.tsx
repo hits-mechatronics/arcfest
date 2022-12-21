@@ -1,56 +1,41 @@
 import { useEffect, useState } from "react";
-import moment from "moment";
+import TimeLabel from "./TimeLabel";
 
 interface props {
-  timestamp: number;
+  eventOn: string;
 }
 
-const CountDown: React.FC<props> = ({ timestamp }) => {
+const CountDown: React.FC<props> = ({ eventOn }) => {
   const [date, setDate] = useState({
-    months: 0,
     days: 0,
     hours: 0,
+    minutes: 0,
+    seconds: 0,
   });
 
   useEffect(() => {
+    const timestamp = new Date(eventOn).getTime();
     const now = new Date().getTime();
-    const countdown = moment(now - timestamp);
-
-    // const moonLanding = new Date("April 19, 2023 20:17:40 GMT+00:00");
-    // console.log(moonLanding.getTime());
-
-    const months = countdown.format("M");
-    // console.log(months);
+    const countdown = timestamp - now;
 
     setDate({
-      days: parseInt(countdown.format("D")),
-      hours: parseInt(countdown.format("HH")),
-      months: parseInt(countdown.format("M")),
+      days: Math.floor(countdown / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((countdown % (1000 * 60)) / 1000),
     });
-  }, []);
+  });
 
   return (
-    <div className="flex-col items-center justify-center">
-      <div className="text-center font-titanOne">Coming Soon</div>
+    <div className="flex-col items-center justify-center absolute top-0 p-4">
+      <div className="text-center tracking-[1rem] relative top-2 font-semibold w-full opacity-75">
+        COMING SOON
+      </div>
       <div className=" gap-10 text-center flex">
-        <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="text-3xl">
-            <span>{date.months}</span>
-          </span>
-          months
-        </div>
-        <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="text-3xl">
-            <span>{date.days}</span>
-          </span>
-          days
-        </div>
-        <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="text-3xl">
-            <span>{date.hours}</span>
-          </span>
-          hours
-        </div>
+        <TimeLabel val={date.days} type="days" />
+        <TimeLabel val={date.hours} type="hours" />
+        <TimeLabel val={date.minutes} type="minutes" />
+        <TimeLabel val={date.seconds} type="seconds" />
       </div>
     </div>
   );
