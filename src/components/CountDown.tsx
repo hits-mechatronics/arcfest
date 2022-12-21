@@ -18,24 +18,28 @@ const CountDown: React.FC<props> = ({ eventOn }) => {
     const now = new Date().getTime();
     const countdown = timestamp - now;
 
-    setDate({
-      days: Math.floor(countdown / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((countdown % (1000 * 60)) / 1000),
-    });
+    setTimeout(() => {
+      setDate({
+        days: Math.floor(countdown / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((countdown % (1000 * 60)) / 1000),
+      });
+    }, 1000);
   });
 
   return (
-    <div className="flex-col items-center justify-center absolute top-0 p-4">
-      <div className="text-center tracking-[1rem] relative top-2 font-semibold w-full opacity-75">
+    <div className="flex-col items-center justify-center absolute top-0">
+      <div className="text-center tracking-[1.5rem] relative top-7 md:top-10 -z-10 text-cyan-500 font-semibold opacity-75 text-xs md:text-base">
         COMING SOON
       </div>
-      <div className=" gap-10 text-center flex">
-        <TimeLabel val={date.days} type="days" />
-        <TimeLabel val={date.hours} type="hours" />
-        <TimeLabel val={date.minutes} type="minutes" />
-        <TimeLabel val={date.seconds} type="seconds" />
+      <div className=" gap-10 text-center flex justify-center items-center">
+        <TimeLabel val={date.days} type="DD" />
+        <TimeLabel val={date.hours} type="HH" />
+        <TimeLabel val={date.minutes} type="MM" />
+        <TimeLabel val={date.seconds} type="SS" />
       </div>
     </div>
   );

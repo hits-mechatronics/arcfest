@@ -24,10 +24,29 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <title>{title}</title>
+    <style>
+      .grid-lines > div {
+        @apply from-cyan-400/0 via-cyan-400 to-cyan-400/0;
+      }
+      .grid-lines > .vertical {
+        @apply absolute top-0 w-px h-full bg-gradient-to-b;
+      }
+      .grid-lines > .horizontal {
+        @apply absolute left-0 h-px w-full bg-gradient-to-r;
+      }
+    </style>
   </head>
   <body
-    class="flex flex-col justify-center items-center h-screen p-6 font-comfy text-blue-100 bg-gray-800 select-none"
+    class="flex flex-col justify-center items-center h-screen p-6 font-comfy text-cyan-400 bg-gray-800 select-none"
   >
+    <div class="grid-lines -z-10">
+      <div class="right-1/4 vertical"></div>
+      <div class="right-1/2 vertical"></div>
+      <div class="right-3/4 vertical"></div>
+      <div class="top-1/4 horizontal"></div>
+      <div class="top-2/4 horizontal"></div>
+      <div class="top-3/4 horizontal"></div>
+    </div>
     <slot />
   </body>
 </html>
