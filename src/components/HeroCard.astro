@@ -48,15 +48,7 @@
       if (motionSafe && canHover) {
         window.addEventListener("resize", () => this.resize());
         this.addEventListener("mousemove", (e) => this.move(e.pageX, e.pageY));
-        this.addEventListener("touchmove", (e) =>
-          this.move(e.touches[0].pageX, e.touches[0].pageY)
-        );
         this.addEventListener("mouseleave", (event) => {
-          if ((event.target as Element).isSameNode(this)) {
-            this.reset();
-          }
-        });
-        this.addEventListener("touchcancel", (event) => {
           if ((event.target as Element).isSameNode(this)) {
             this.reset();
           }
