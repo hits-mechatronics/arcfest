@@ -47,10 +47,16 @@
       const canHover = window.matchMedia("(hover: hover)").matches;
       if (motionSafe && canHover) {
         window.addEventListener("resize", () => this.resize());
-        this.addEventListener("mousemove", (event) =>
-          this.move(event as MouseEvent)
+        this.addEventListener("mousemove", (e) => this.move(e.pageX, e.pageY));
+        this.addEventListener("touchmove", (e) =>
+          this.move(e.touches[0].pageX, e.touches[0].pageY)
         );
         this.addEventListener("mouseleave", (event) => {
+          if ((event.target as Element).isSameNode(this)) {
+            this.reset();
+          }
+        });
+        this.addEventListener("touchcancel", (event) => {
           if ((event.target as Element).isSameNode(this)) {
             this.reset();
           }
@@ -64,9 +70,9 @@
       this.rect = this.getBoundingClientRect();
       this.reset();
     }
-    move(e: MouseEvent) {
-      const x = (e.pageX - this.rect.left) / this.rect.width - 0.5;
-      const y = (e.pageY - this.rect.top) / this.rect.height - 0.5;
+    move(eX: number, eY: number) {
+      const x = (eX - this.rect.left) / this.rect.width - 0.5;
+      const y = (eY - this.rect.top) / this.rect.height - 0.5;
       const nx = 5;
       const ny = 7.5;
       const horiztonal = clamp(nx * -1, nx, lerp(nx * -1, nx, x * 2));
