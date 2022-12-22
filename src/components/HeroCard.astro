@@ -47,24 +47,21 @@ import Link from "./Link";
       y = 0;
       rect!: DOMRect;
       interval: any;
+      sensitivity = 1.5;
       constructor() {
         super();
-        if (!("matchMedia" in window)) return;
-        const motionSafe = window.matchMedia(
-          "(prefers-reduced-motion: no-preference)"
-        ).matches;
-        const canHover = window.matchMedia("(hover: hover)").matches;
-        if (motionSafe && canHover) {
-          window.addEventListener("resize", () => this.resize());
-          this.addEventListener("mousemove", (e) =>
-            this.move(e.pageX, e.pageY)
-          );
-          this.addEventListener("mouseleave", (event) => {
-            if ((event.target as Element).isSameNode(this)) {
-              this.reset();
-            }
-          });
-        }
+        window.addEventListener("resize", () => this.resize());
+        this.addEventListener("mousemove", (e) => this.move(e.pageX, e.pageY));
+        this.addEventListener("touchmove", (e) => {
+          e.preventDefault();
+          this.move(e.touches[0].pageX, e.touches[0].pageY);
+        });
+        this.addEventListener("mouseleave", (event) => {
+          if ((event.target as Element).isSameNode(this)) {
+            this.reset();
+          }
+        });
+        // }
       }
       connectedCallback() {
         this.resize();
@@ -81,8 +78,14 @@ import Link from "./Link";
         const horiztonal = clamp(nx * -1, nx, lerp(nx * -1, nx, x * 2));
         const vertical = clamp(ny * -1, ny, lerp(ny, ny * -1, y * 2));
         requestAnimationFrame(() => {
-          this.style.setProperty("--rot-x", `${vertical}deg`);
-          this.style.setProperty("--rot-y", `${horiztonal}deg`);
+          this.style.setProperty(
+            "--rot-x",
+            `${vertical * this.sensitivity}deg`
+          );
+          this.style.setProperty(
+            "--rot-y",
+            `${horiztonal * this.sensitivity}deg`
+          );
         });
       }
       reset() {

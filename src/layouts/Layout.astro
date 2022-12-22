@@ -68,6 +68,17 @@ const { title } = Astro.props;
             : console.log("cursor not detected");
         }, 200);
       });
+      window.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        setTimeout(() => {
+          c
+            ? (c.style.top = e.touches[0].pageY + "px")
+            : console.log("cursor not detected");
+          c
+            ? (c.style.left = e.touches[0].pageX + "px")
+            : console.log("cursor not detected");
+        }, 200);
+      });
     </script>
   </body>
 </html>
