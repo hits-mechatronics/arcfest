@@ -1,9 +1,10 @@
 ---
+import CountDown from "../components/CountDown";
+import Nav from "../components/Nav";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="ArcFest'23 | 404">
-  <div class="h-screen flex flex-col justify-center items-center">
-    <a class="underline text-9xl" href="/2023">oh snap :(</a>
-  </div>
+<Layout title="ArcFest'23 | Home">
+  <CountDown eventOn="03/30/2023" client:load />
+  <Nav currentRoute="" />
 </Layout>
