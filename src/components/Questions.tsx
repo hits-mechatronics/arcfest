@@ -14,7 +14,7 @@ const renderQs = () => {
 
 const Questions: React.FC = () => {
   return (
-    <div className="w-screen h-full flex flex-col justify-center items-center gap-4">
+    <div className="w-screen h-full overflow-scroll flex flex-col items-center m-12 gap-4">
       {renderQs()}
     </div>
   );

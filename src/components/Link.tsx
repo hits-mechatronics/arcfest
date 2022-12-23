@@ -5,7 +5,7 @@ interface props {
 }
 const Link: React.FC<props> = ({ href, linkText, nonLinkText }) => {
   return (
-    <a className="text-[0.8rem] md:text-sm" href={href} target="_blank">
+    <a className="text-[0.7rem] md:text-sm" href={href} target="_blank">
       {nonLinkText}
       <span className="underline">{linkText}</span>
     </a>

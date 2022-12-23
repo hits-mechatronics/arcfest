@@ -26,7 +26,7 @@ const routes = [
 const Nav: React.FC<props> = ({ currentRoute }) => {
   return (
     <>
-      <div className="flex justify-center my-6 absolute bottom-0">
+      <div className="flex flex-col items-center justify-center absolute bottom-6">
         <nav className="rounded-full bg-gray-900">
           <ul className="flex">
             {routes.map((item) => (

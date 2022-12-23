@@ -31,7 +31,7 @@ const CountDown: React.FC<props> = ({ eventOn }) => {
   });
 
   return (
-    <div className="flex-col items-center justify-center absolute top-0">
+    <div className="flex-col items-center justify-center">
       <div className="text-center tracking-[1.5rem] relative top-7 md:top-10 -z-10 text-cyan-500 font-semibold opacity-75 text-xs md:text-base">
         COMING SOON
       </div>
