@@ -22,7 +22,9 @@ const Question: React.FC<props> = ({ title, content }) => {
         <span className="font-black text-lg">{open ? "-" : "+"}</span>
       </div>
       {open ? (
-        <div className="w-full bg-gray-900 opacity-75 px-4 py-2">{content}</div>
+        <div className="w-full backdrop-filter text-cyan-500 backdrop-blur-[4px] border border-cyan-900 px-4 py-2">
+          {content}
+        </div>
       ) : null}
     </div>
   );
