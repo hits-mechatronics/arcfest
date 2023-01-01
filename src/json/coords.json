@@ -1,0 +1,32 @@
+[
+  {
+    "type": "staff",
+    "name": "Mr. Ram Kumar",
+    "imgsrc": "https://github.com/lucidmach.png",
+    "number": "123456789"
+  },
+  {
+    "type": "student",
+    "name": "Mr. Ram Kumar",
+    "imgsrc": "https://github.com/lucidmach.png",
+    "number": "123456789"
+  },
+  {
+    "type": "student",
+    "name": "Mr. Ram Kumar",
+    "imgsrc": "https://github.com/lucidmach.png",
+    "number": "123456789"
+  },
+  {
+    "type": "student",
+    "name": "Mr. Ram Kumar",
+    "imgsrc": "https://github.com/lucidmach.png",
+    "number": "123456789"
+  },
+  {
+    "type": "student",
+    "name": "Mr. Ram Kumar",
+    "imgsrc": "https://github.com/lucidmach.png",
+    "number": "123456789"
+  }
+]

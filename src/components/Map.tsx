@@ -1,4 +1,27 @@
+import people from "../json/coords.json";
 import PersonCard from "./PersonCard";
+
+const renderPerson = (type: string) => {
+  const PersonList: JSX.Element[] = [];
+
+  people.map((person, i) => {
+    console.log(person.type, type, i);
+    if (person.type === type) {
+      console.log(person.type, type, i);
+
+      PersonList.push(
+        <PersonCard
+          name={person.name}
+          imgsrc={person.imgsrc}
+          number={person.number}
+          key={i}
+        />
+      );
+    }
+  });
+
+  return PersonList;
+};
 
 const Map: React.FC = () => (
   <div className="h-[80%] overflow-scroll w-full flex flex-col justify-center items-center text-sm m-6">
@@ -13,37 +36,15 @@ const Map: React.FC = () => (
     </div>
     <div className="flex flex-col items-center">
       <h1 className="text-2xl m-6">staff co-ordinators</h1>
-      <PersonCard
-        imgsrc="https://github.com/lucidmach.png"
-        name="Mr. Ram Kumar"
-        number="123456789"
-      />
+      {renderPerson("staff")}
     </div>
     <div className="flex flex-col items-center">
       <h1 className="text-2xl m-6">student co-ordinators</h1>
       <div className="grid grid-cols-2 md:flex md:flex-row gap-12">
-        <PersonCard
-          imgsrc="https://github.com/lucidmach.png"
-          name="Mr. Ram Kumar"
-          number="123456789"
-        />
-        <PersonCard
-          imgsrc="https://github.com/lucidmach.png"
-          name="Mr. Ram Kumar"
-          number="123456789"
-        />
-        <PersonCard
-          imgsrc="https://github.com/lucidmach.png"
-          name="Mr. Ram Kumar"
-          number="123456789"
-        />
-        <PersonCard
-          imgsrc="https://github.com/lucidmach.png"
-          name="Mr. Ram Kumar"
-          number="123456789"
-        />
+        {renderPerson("student")}
       </div>
     </div>
+    <div className="h-[300px] opacity-0"></div>
   </div>
 );
 

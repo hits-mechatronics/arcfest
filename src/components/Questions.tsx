@@ -1,4 +1,3 @@
-import type { ReactHTMLElement } from "react";
 import qs from "../json/faq.json";
 import Question from "./Question";
 
