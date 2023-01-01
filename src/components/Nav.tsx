@@ -4,7 +4,12 @@ interface props {
   currentRoute: string;
 }
 
-const routes = [
+interface routeType {
+  name: string;
+  route: string;
+}
+
+const routes: routeType[] = [
   {
     name: "Home",
     route: "/2023",
@@ -32,7 +37,6 @@ const Nav: React.FC<props> = ({ currentRoute }) => {
             {routes.map((item) => (
               <a href={item.route} className="no-underline" rel="prefetch">
                 <li
-                  key={item.name}
                   className={clsx(
                     "no-underline py-2 px-4 rounded-[6rem] lg:py-4 lg:px-8",
                     item.route === currentRoute && "bg-black"

@@ -2,7 +2,9 @@
 import Link from "./Link";
 ---
 
-<hero-card class="flex justify-center items-center h-screen w-screen js-tilt">
+<hero-card
+  class="flex justify-center items-center h-screen w-screen js-tilt overflow-hidden"
+>
   <div
     class="card flex relative flex-col items-center pt-4 pb-8 sm:py-10 px-6 sm:px-12 backdrop-filter text-cyan-500 backdrop-blur-[2px] border border-cyan-900 rounded-2xl shadow-primary-700"
   >
@@ -23,7 +25,7 @@ import Link from "./Link";
 
   <style>
     .js-tilt {
-      transform: perspective(1000px) rotateX(var(--rot-x, 0deg))
+      transform: perspective(7000px) rotateX(var(--rot-x, 0deg))
         rotateY(var(--rot-y, 0deg)) scale3d(1, 1, 1);
       transform-style: preserve-3d;
       transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -48,7 +50,7 @@ import Link from "./Link";
       y = 0;
       rect!: DOMRect;
       interval: any;
-      sensitivity = 1.5;
+      sensitivity = 2.5;
       constructor() {
         super();
         window.addEventListener("resize", () => this.resize());
