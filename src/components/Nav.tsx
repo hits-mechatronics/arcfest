@@ -35,7 +35,12 @@ const Nav: React.FC<props> = ({ currentRoute }) => {
         <nav className="rounded-full bg-gray-900">
           <ul className="flex">
             {routes.map((item) => (
-              <a href={item.route} className="no-underline" rel="prefetch">
+              <a
+                href={item.route}
+                key={item.name}
+                className="no-underline"
+                rel="prefetch"
+              >
                 <li
                   className={clsx(
                     "no-underline py-2 px-4 rounded-[6rem] lg:py-4 lg:px-8",
