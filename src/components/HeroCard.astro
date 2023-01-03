@@ -36,6 +36,12 @@ import Link from "./Link";
     .card {
       transform: translateZ(50px);
     }
+    @media screen and (min-width: 600px) {
+      .js-tilt {
+        transform: perspective(1000px) rotateX(var(--rot-x, 0deg))
+          rotateY(var(--rot-y, 0deg)) scale3d(1, 1, 1);
+      }
+    }
   </style>
 
   <script>
