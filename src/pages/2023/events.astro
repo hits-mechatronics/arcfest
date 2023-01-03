@@ -1,0 +1,12 @@
+---
+import Nav from "../../components/Nav";
+import SlideMenu from "../../components/SlideMenu";
+import Layout from "../../layouts/Layout.astro";
+import menuItems from "../../json/events.json";
+---
+
+<Layout title="ArcFest'23 | Home">
+  <!-- <CountDown eventOn="03/30/2023" client:load /> -->
+  <SlideMenu menu={menuItems} client:load />
+  <Nav currentRoute="/2023/events" />
+</Layout>

@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "icon": "/svg/idea.svg",
+    "name": "Innovatio",
+    "img": "/banner.jpeg",
+    "desc": "will be updated soon..."
+  },
+  {
+    "icon": "/svg/idea.svg",
+    "name": "Bot Fights",
+    "img": "/banner.jpeg",
+    "desc": "Arc Fest presents <Robot Battle>, a contest where a platform is provided for individuals to test their robots in combat. A duel between Machines; a battle of steel and iron; a deadlocked clash-of-bots, until only one Bot remains..."
+  },
+  {
+    "icon": "/svg/idea.svg",
+    "name": "Robo Race",
+    "img": "/banner.jpeg",
+    "desc": "Arc Fest presents <Robot Race>, a contest of Speed and Resilience, where the most Fast and Furious Machine Wins the race. Think your robot can overcome all the Obstacles Big-or-Small, at all the Twists-and-turns in the Least of Time...?"
+  },
+  {
+    "icon": "/svg/idea.svg",
+    "name": "Hindustan Rover Challenge",
+    "img": "/banner.jpeg",
+    "desc": "will be updated soon..."
+  },
+  {
+    "icon": "/svg/idea.svg",
+    "name": "Line Follower",
+    "img": "/banner.jpeg",
+    "desc": "A Challenge where Robots beat each other at following a track from start to end in the shortest possible time. A game of Speed, Perception and Sequence. Join the Contest to see if your robot can transcend its competition."
+  }
+]
